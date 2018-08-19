@@ -1,7 +1,5 @@
 import exception.DepositNotEnough;
-import model.Company;
-import model.Market;
-import model.Player;
+import model.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +14,7 @@ public class CashFlow {
     private int playerIndex = 0;
     private Player currentPlayer;
     private Market stockMarket;
+    private String[] AI_names = {"Min", "Pan", "Ana", "Woo", "Liu"};
 
     public CashFlow(Market stockMarket) {
         this.stockMarket = stockMarket;
@@ -28,10 +27,11 @@ public class CashFlow {
     }
 
     private void createPlayers() {
-        for (int i = 0; i < 4; i++) {
-            System.out.println("請輸入玩家" + (i + 1) + "姓名: ");
-            String name = input.next();
-            players.add(new Player(i, name));
+        for (int i = 1; i < 5; i++) {
+            System.out.println("請輸入玩家" + i + "類型(1.真人 2.AI): ");
+            int category = input.nextInt();
+            String name = category == 1 ? input.next() : AI_names[(int) (Math.random()) * 4];
+            players.add(category == 1 ? new RealPlayer(i, name) : new AI(i, name));
         }
     }
 
