@@ -1,4 +1,5 @@
 package model;
 
-public class GameReader {
+public interface GameReader {
+    void readGameRecord();
 }

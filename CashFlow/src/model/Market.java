@@ -1,23 +1,25 @@
 package model;
 
+import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
 
-public abstract class Market {
-    CompaniesRepository companiesRepository;
-    List<Company> companies;
+public abstract class Market implements Serializable {
+    private StocksRepository stocksRepository;
+    private HashMap<Integer, Stock> stocks;
 
-    public Market(CompaniesRepository companiesRepository) {
-        this.companiesRepository = companiesRepository;
-        companies = companiesRepository.createCompanies();
+    Market(StocksRepository stocksRepository) {
+        this.stocksRepository = stocksRepository;
+        stocks = stocksRepository.createCompanies();
     }
 
     public abstract void showInfo();
 
-    public List<Company> getCompanies() {
-        return companies;
+    public HashMap<Integer, Stock> getStocks() {
+        return stocks;
     }
 
-    public void setCompanies(List<Company> companies) {
-        this.companies = companies;
+    public void setStocks(HashMap<Integer, Stock> stocks) {
+        this.stocks = stocks;
     }
 }

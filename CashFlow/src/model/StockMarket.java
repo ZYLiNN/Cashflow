@@ -1,24 +1,24 @@
 package model;
 
-import java.util.List;
+import java.util.HashMap;
 
-public class StockMarket extends Market {
+public class StockMarket extends Market{
+    private HashMap<Integer, Stock> marketStocks;
 
-    public StockMarket(CompaniesRepository companiesRepository) {
-        super(companiesRepository);
-        this.companiesRepository = companiesRepository;
-        setUpCompanies();
-    }
-
-    private void setUpCompanies() {
-        companies = companiesRepository.createCompanies();
+    public StockMarket(StocksRepository stocksRepository) {
+        super(stocksRepository);
+        marketStocks = stocksRepository.createCompanies();
     }
 
     @Override
     public void showInfo() {
-        System.out.printf("%4s%5s%6s\n", "公司名稱", "ID", "股價");
-        for(Company company : companies) {
-            System.out.printf("%s%8d%6d\n",company.getName(), company.getId(), company.getStockPrice());
+        showStocksInfo();
+    }
+
+    void showStocksInfo(){
+        for (int i = 0; i < marketStocks.size(); i++){
+            Stock stock = marketStocks.get(i+1);
+            System.out.println("(" + stock.getId() + ") " + stock.getName() + " " + stock.getPrice() + "$ ");
         }
     }
 

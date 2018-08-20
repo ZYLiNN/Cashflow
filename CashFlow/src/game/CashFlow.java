@@ -89,8 +89,8 @@ public class CashFlow {
                     } catch (PlayerStocksAmountNotEnoughException err) {
                         err.printStackTrace();
                     }
-                } else { //販賣股票邏輯
-                    
+                } else {
+
                 }
                 break;
             default:

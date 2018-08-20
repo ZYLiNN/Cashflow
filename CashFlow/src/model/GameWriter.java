@@ -1,4 +1,5 @@
 package model;
 
-public class GameWriter {
+public interface GameWriter {
+    void writerGameRecord();
 }
