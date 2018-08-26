@@ -2,9 +2,9 @@ package model;
 
 import java.io.Serializable;
 import java.util.HashMap;
-import java.util.List;
 
 public abstract class Market implements Serializable {
+    //Todo
     private StocksRepository stocksRepository;
     private HashMap<Integer, Stock> stocks;
 

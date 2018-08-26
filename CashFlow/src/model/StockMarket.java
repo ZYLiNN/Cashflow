@@ -15,7 +15,7 @@ public class StockMarket extends Market{
         showStocksInfo();
     }
 
-    void showStocksInfo(){
+    private void showStocksInfo(){
         for (int i = 0; i < marketStocks.size(); i++){
             Stock stock = marketStocks.get(i+1);
             System.out.println("(" + stock.getId() + ") " + stock.getName() + " " + stock.getPrice() + "$ ");

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CashFlow {
-    Scanner input = new Scanner(System.in);
+    private Scanner input = new Scanner(System.in);
 
     private List<Player> players = new ArrayList<>();
     private HashMap<Integer, Stock> stockHashMap;
