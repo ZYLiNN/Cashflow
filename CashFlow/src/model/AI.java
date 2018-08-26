@@ -5,4 +5,9 @@ public class AI extends Player {
         super(id, name);
     }
 
+    @Override
+    public void buyOrSoldStocks() {
+
+    }
+
 }

@@ -2,19 +2,22 @@ package model;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public abstract class Player implements Serializable {
-    private int id;
-    private String name;
-    private int deposit;
-    private HashMap<Integer, Stock> playerStockHashMap = new HashMap<>();
-    private HashMap<Integer, Integer> playerStockAmountHashMap = new HashMap<>();
+    protected Scanner input = new Scanner(System.in);
+    protected int id;
+    protected String name;
+    protected int deposit;
+    protected HashMap<Integer, PlayerStock> playerStockHashMap = new HashMap<>();
 
     public Player(int id, String name) {
         this.id = id;
         this.name = name;
         deposit = 6000;
     }
+
+    public abstract void buyOrSoldStocks();
 
     public int getId() {
         return id;
@@ -40,37 +43,49 @@ public abstract class Player implements Serializable {
         this.deposit = deposit;
     }
 
-    public HashMap<Integer, Stock> getPlayerStockHashMap() {
+    public HashMap<Integer, PlayerStock> getPlayerStockHashMap() {
         return playerStockHashMap;
     }
 
-    public void setPlayerStockHashMap(HashMap<Integer, Stock> playerStockHashMap) {
+    public void setPlayerStockHashMap(HashMap<Integer, PlayerStock> playerStockHashMap) {
         this.playerStockHashMap = playerStockHashMap;
     }
 
-    public HashMap<Integer, Integer> getPlayerStockAmountHashMap() {
-        return playerStockAmountHashMap;
+    public void showPlayerOwnStocks() {
+        System.out.println("--擁有");
+        if(playerStockHashMap != null){
+            for (int s = 0; s < playerStockHashMap.size(); s++){
+                PlayerStock playerStock = playerStockHashMap.get(s+1);
+                if(playerStock != null)
+                    System.out.println("(" + playerStock.stock.getId() + ") " + playerStock.stock.getName() + " " + playerStock.amount + "張");
+            }
+        }
     }
 
-    public void setPlayerStockAmountHashMap(HashMap<Integer, Integer> playerStockAmountHashMap) {
-        this.playerStockAmountHashMap = playerStockAmountHashMap;
-    }
+    protected class PlayerStock{
+        private Stock stock;
+        private int amount;
 
-    public void addPlayerDeposit(int money){
-        deposit += money;
-    }
+        public PlayerStock(Stock stock, int amount) {
+            this.stock = stock;
+            this.amount = amount;
+        }
 
-    public void subPlayerDeposit(int money){
-        deposit -= money;
-    }
+        public Stock getStock() {
+            return stock;
+        }
 
-    public void addPlayerStock(Stock stock, int amount){
-        playerStockHashMap.put(stock.getId(), stock);
-        playerStockAmountHashMap.put(stock.getId(), amount);
-    }
+        public void setStock(Stock stock) {
+            this.stock = stock;
+        }
 
-    public void subPlayerStock(Stock stock, int amount){
+        public int getAmount() {
+            return amount;
+        }
 
+        public void setAmount(int amount) {
+            this.amount = amount;
+        }
     }
 
 }

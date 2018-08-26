@@ -1,7 +1,5 @@
 package game;
 
-import game.CashFlow;
-import model.StocksRepositoryImp;
 import model.StockMarket;
 
 import java.util.Scanner;
@@ -15,7 +13,7 @@ public class Main {
             System.out.println("1.開始新遊戲 2.繼續遊戲");
             int choice = input.nextInt();
             if (choice == 1) {
-                CashFlow cashFlow = new CashFlow(new StockMarket(new StocksRepositoryImp()));
+                CashFlow cashFlow = new CashFlow(new StockMarket());
                 cashFlow.configureGame();
                 cashFlow.startGame();
             }
