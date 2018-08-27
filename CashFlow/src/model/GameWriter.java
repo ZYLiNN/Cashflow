@@ -6,8 +6,9 @@ import java.io.ObjectOutputStream;
 import java.util.List;
 
 public class GameWriter {
-    private final String FILENAME = "E:\\GitHub\\Cashflow\\GameRecord";
+    private static final String FILENAME = "E:\\GitHub\\Cashflow\\GameRecord\\record.txt";
 
+    //todo
     public void writeGameRecord(StockMarket stockMarket, List<Player> players){
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(FILENAME);

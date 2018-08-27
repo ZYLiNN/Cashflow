@@ -6,13 +6,13 @@ import java.io.ObjectInputStream;
 import java.util.List;
 
 public class GameReader {
-    private final String FILENAME = "E:\\GitHub\\Cashflow\\GameRecord";
+    private static final String FILENAME = "E:\\GitHub\\Cashflow\\GameRecord\\record.txt";
     private StockMarket stockMarket = null;
     private List<Player> players = null;
 
+    //todo
     public void readGameRecord(){
         try {
-
             FileInputStream fileInputStream = new FileInputStream(FILENAME);
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
             stockMarket = (StockMarket) objectInputStream.readObject();

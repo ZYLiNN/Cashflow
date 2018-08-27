@@ -6,10 +6,8 @@ import exception.PlayerStocksNotExistException;
 
 import java.io.Serializable;
 import java.util.HashMap;
-import java.util.Scanner;
 
 public class StockMarket implements Serializable {
-    private Scanner input = new Scanner(System.in);
     private static HashMap<Integer, Stock> stockHashMap = new HashMap<>();
 
     public StockMarket() {
@@ -51,12 +49,12 @@ public class StockMarket implements Serializable {
                 break;
             default:
                 break;
-
         }
     }
 
     //Todo 優化
     private void playerSoldStock(Player player) throws PlayerStocksAmountNotEnoughException, PlayerStocksNotExistException {
+        //得到要購買要賣出的股票
         Stock stock = stockHashMap.get(player.chooseStock());
         int amount = player.determineStockAmount();
         player.soldStocks(stock, amount);

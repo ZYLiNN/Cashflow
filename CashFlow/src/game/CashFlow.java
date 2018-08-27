@@ -39,6 +39,7 @@ public class CashFlow {
             if(category == 1)
                 System.out.println("請輸入玩家姓名: ");
             String name = category == 1 ? input.next() : aiNames[(int) (Math.random() * (aiNames.length))];
+            // 1: 真人　2:AI
             players.add(category == 1 ? new RealPlayer(i, name) : new AI(i, name));
         }
     }
@@ -53,7 +54,8 @@ public class CashFlow {
             }
             isPlayerWinTheGame(currentPlayer);
             turnToNextPlayer();
-            stockMarket.stocksInfoChange();
+            if(playerIndex % 4 == 0)
+                stockMarket.stocksInfoChange();
             recordGame();
         }
         System.out.println("Winner is: " + winner.getName());

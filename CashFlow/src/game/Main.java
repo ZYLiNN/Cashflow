@@ -1,7 +1,5 @@
 package game;
 
-import model.StockMarket;
-
 import java.util.Scanner;
 
 public class Main {
