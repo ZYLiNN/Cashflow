@@ -37,11 +37,4 @@ public class Stock implements Serializable {
         this.price = price;
     }
 
-    public void increaseOrDecreaseStockPrice(){
-        int money = (int) (Math.random() * 500);
-        int choice = (int) (Math.random() * 2);
-        price = choice == 0 ? price + money : price - money;
-        price = price < 0 ? 0 : price;
-    }
-
 }

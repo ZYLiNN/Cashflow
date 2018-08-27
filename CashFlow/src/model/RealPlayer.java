@@ -2,21 +2,53 @@ package model;
 
 import exception.DepositNotEnoughException;
 import exception.PlayerStocksAmountNotEnoughException;
+import exception.PlayerStocksNotExistException;
+
+import java.util.Scanner;
 
 public class RealPlayer extends Player {
+    private Scanner input = new Scanner(System.in);
+
     public RealPlayer(int id, String name) {
         super(id, name);
     }
 
     @Override
-    public void buyOrSoldStocks() {
-        System.out.println("玩家: " + name);
-        System.out.println("手頭現金: " + deposit);
-        System.out.println("1.買進 2.賣出 0.結束");
-        int choice = input.nextInt();
-        showPlayerOwnStocks();
-        switch (choice) {
-            case 1:
+    public void buyStocks(Stock stock, int amount) throws DepositNotEnoughException {
+        if (deposit < (stock.getPrice() * amount))
+            throw new DepositNotEnoughException();
+        else {
+            deposit -= (stock.getPrice() * amount);
+            amount = playerStockHashMap.get(stock.getId()) != null ? playerStockHashMap.get(stock.getId()).getAmount() + amount : amount;
+            playerStockHashMap.put(stock.getId(), new PlayerStock(stock, amount));
+        }
+    }
+
+    @Override
+    public void soldStocks(Stock stock, int amount) throws PlayerStocksNotExistException, PlayerStocksAmountNotEnoughException {
+        if (playerStockHashMap.get(stock.getId()) == null)
+            throw new PlayerStocksNotExistException();
+        else if (playerStockHashMap.get(stock.getId()).getAmount() < amount)
+            throw new PlayerStocksAmountNotEnoughException();
+        else {
+            deposit += (stock.getPrice() * amount);
+            amount = playerStockHashMap.get(stock.getId()).getAmount() - amount;
+            if(amount == 0)
+                playerStockHashMap.remove(stock.getId());
+            else
+                playerStockHashMap.put(stock.getId(), new PlayerStock(stock, amount));
+        }
+    }
+
+//    @Override
+//    public void buyOrSoldStocks() {
+//        System.out.println("玩家: " + name);
+//        System.out.println("手頭現金: " + deposit);
+//        System.out.println("1.買進 2.賣出 0.結束");
+//        int choice = input.nextInt();
+//        showPlayerOwnStocks();
+//        switch (choice) {
+//            case 1:
 //                System.out.println("請輸入欲購買之股票ID:");
 //                int stockId = input.nextInt();
 //                System.out.println("請輸入買進數量: ");
@@ -31,8 +63,8 @@ public class RealPlayer extends Player {
 //                else {
 //                    player.buyStocks(stock, amount);
 //                }
-                break;
-            case 2:
+//                break;
+//            case 2:
 //                System.out.println("請輸入欲販賣之股票編號: ");
 //                stockId = input.nextInt();
 //                if (player.getPlayerStockAmountHashMap().get(stockId) == null){
@@ -44,12 +76,29 @@ public class RealPlayer extends Player {
 //                } else {
 //
 //                }
-                break;
-            default:
-                break;
+//                break;
+//            default:
+//                break;
+//
+//        }
+//    }
 
-        }
+    @Override
+    public int makeChoice() {
+        System.out.println("玩家: " + name);
+        System.out.println("手頭現金: " + deposit);
+        System.out.println("1.買進 2.賣出 0.結束");
+        return input.nextInt();
     }
 
+    public int chooseStock() {
+        System.out.println("請輸入股票之ID:");
+        return input.nextInt();
+    }
+
+    public int determineStockAmount() {
+        System.out.println("請輸入數量: ");
+        return input.nextInt();
+    }
 
 }

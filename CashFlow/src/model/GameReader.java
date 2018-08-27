@@ -6,16 +6,18 @@ import java.io.ObjectInputStream;
 import java.util.List;
 
 public class GameReader {
+    private final String FILENAME = "E:\\GitHub\\Cashflow\\GameRecord";
     private StockMarket stockMarket = null;
     private List<Player> players = null;
 
-    public void readGameRecorde(){
+    public void readGameRecord(){
         try {
 
-            FileInputStream fileInputStream = new FileInputStream("C:\\Users\\Lin\\IdeaProjects\\CashFlow\\GameRecorde");
+            FileInputStream fileInputStream = new FileInputStream(FILENAME);
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-//            stockMarket = objectInputStream.readObject();
-        } catch (IOException e) {
+            stockMarket = (StockMarket) objectInputStream.readObject();
+            players = (List<Player>) objectInputStream.readObject();
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }

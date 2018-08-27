@@ -1,11 +1,14 @@
 package model;
 
+import exception.DepositNotEnoughException;
+import exception.PlayerStocksAmountNotEnoughException;
+import exception.PlayerStocksNotExistException;
+
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Scanner;
 
 public abstract class Player implements Serializable {
-    protected Scanner input = new Scanner(System.in);
     protected int id;
     protected String name;
     protected int deposit;
@@ -17,7 +20,17 @@ public abstract class Player implements Serializable {
         deposit = 6000;
     }
 
-    public abstract void buyOrSoldStocks();
+//    public abstract void buyOrSoldStocks();
+
+    public abstract int makeChoice();
+
+    public abstract void buyStocks(Stock stock, int amount) throws DepositNotEnoughException;
+
+    public abstract void soldStocks(Stock stock, int amount) throws PlayerStocksNotExistException, PlayerStocksAmountNotEnoughException;
+
+    public abstract int chooseStock();
+
+    public abstract int determineStockAmount();
 
     public int getId() {
         return id;
@@ -54,7 +67,7 @@ public abstract class Player implements Serializable {
     public void showPlayerOwnStocks() {
         System.out.println("--擁有");
         if(playerStockHashMap != null){
-            for (int s = 0; s < playerStockHashMap.size(); s++){
+            for (int s = 0; s < StockMarket.getStockHashMap().size(); s++){
                 PlayerStock playerStock = playerStockHashMap.get(s+1);
                 if(playerStock != null)
                     System.out.println("(" + playerStock.stock.getId() + ") " + playerStock.stock.getName() + " " + playerStock.amount + "張");
