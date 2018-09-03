@@ -22,11 +22,6 @@ public class RealPlayer extends Player {
     }
 
     @Override
-    public void buyOrSoldStocks() {
-
-    }
-
-    @Override
     public int chooseStock() {
         System.out.println("請輸入股票之ID:");
         return input.nextInt();

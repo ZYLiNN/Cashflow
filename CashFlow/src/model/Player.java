@@ -26,9 +26,6 @@ public abstract class Player implements Serializable {
 
     public abstract int makeChoice();
 
-    public abstract void buyOrSoldStocks();
-
-//    //Todo
 //    public void buyStocks(Stock stock, int amount) throws DepositNotEnoughException{
 //        if (deposit < (stock.getPrice() * amount))
 //            throw new DepositNotEnoughException();
@@ -39,7 +36,6 @@ public abstract class Player implements Serializable {
 //        }
 //    }
 //
-//    //Todo
 //    public void soldStocks(Stock stock, int amount) throws PlayerStocksNotExistException, PlayerStocksAmountNotEnoughException{
 //        if (playerStockHashMap.get(stock.getId()) == null)
 //            throw new PlayerStocksNotExistException();
@@ -55,7 +51,6 @@ public abstract class Player implements Serializable {
 //        }
 //    }
 
-    //todo map size
     public void showPlayerOwnStocks(int size) {
         System.out.println("--擁有");
         if(playerStockHashMap != null){

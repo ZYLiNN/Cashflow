@@ -50,9 +50,7 @@ public class StockMarket implements Serializable {
         }
     }
 
-    //Todo 優化
     private void playerSoldStock(Player player, int stockId, int amount) throws PlayerStocksAmountNotEnoughException, PlayerStocksNotExistException {
-        //得到要購買要賣出的股票
         Stock stock = stockHashMap.get(stockId);
         if (player.getPlayerStockHashMap().get(stockId) == null)
             throw new PlayerStocksNotExistException();
@@ -105,11 +103,11 @@ public class StockMarket implements Serializable {
                     finalPrice = ((int) (Math.random() * 3) + 1) * money;
                     break;
             }
-            increaseOrDecrease(stock, finalPrice);
+            increaseOrDecreaseStocks(stock, finalPrice);
         }
     }
 
-    public void increaseOrDecrease(Stock stock, int price) {
+    public void increaseOrDecreaseStocks(Stock stock, int price) {
         int ran = (int) (Math.random() * 3);
         int stockPrice = stock.getPrice();
         switch (ran) {

@@ -10,7 +10,6 @@ public class GameWriterAndReader {
     private Player currentPlayer = null;
     private int playerIndex;
 
-    //todo
     public void writeGameRecord(StockMarket stockMarket, List<Player> players, Player currentPlayer, int playerIndex){
         try {
             FileOutputStream fileOutputStream = new FileOutputStream(FILENAME);

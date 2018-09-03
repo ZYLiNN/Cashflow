@@ -69,7 +69,6 @@ public class CashFlow {
         }
     }
 
-    //Todo
     private void judgeAnyPlayerWinTheGameAndSetupWinner(Player currentPlayer) {
         if(currentPlayer.getDeposit() >= 10000) {
             isGameOver = currentPlayer.getDeposit() >= 10000;

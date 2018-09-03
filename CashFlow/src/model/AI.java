@@ -79,11 +79,6 @@ public class AI extends Player {
     }
 
     @Override
-    public void buyOrSoldStocks() {
-
-    }
-
-    @Override
     public int chooseStock() {
         int bestSoldBenefit = 0;
         int bestBuyBenefit = 20000;
