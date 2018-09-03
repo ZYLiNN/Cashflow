@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.List;
 
 public class GameWriterAndReader {
-    private static final String FILENAME = "record";
+    private static final String FILENAME = "..\\CashFlow\\src\\record";
     private StockMarket stockMarket = null;
     private List<Player> players = null;
     private Player currentPlayer = null;

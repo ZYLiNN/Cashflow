@@ -13,6 +13,7 @@ public abstract class Player implements Serializable {
     protected String name;
     protected int deposit;
     protected  transient Scanner input = new Scanner(System.in);
+
     protected HashMap<Integer, PlayerStock> playerStockHashMap = new HashMap<>();
 
     public Player(int id) {
@@ -100,6 +101,10 @@ public abstract class Player implements Serializable {
 
     public void setPlayerStockHashMap(HashMap<Integer, PlayerStock> playerStockHashMap) {
         this.playerStockHashMap = playerStockHashMap;
+    }
+
+    public void setInput(Scanner input) {
+        this.input = input;
     }
 
 }

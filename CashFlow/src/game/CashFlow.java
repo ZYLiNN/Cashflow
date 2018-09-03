@@ -87,13 +87,14 @@ public class CashFlow {
         gameWriterAndReader.writeGameRecord(stockMarket, players, currentPlayer, playerIndex);
     }
 
-    public void readGameRecord(Scanner input){
+    public void readGameRecord(){
         gameWriterAndReader.readGameRecord();
         this.stockMarket = gameWriterAndReader.getStockMarket();
         this.players = gameWriterAndReader.getPlayers();
         this.currentPlayer = gameWriterAndReader.getCurrentPlayer();
         this.playerIndex = gameWriterAndReader.getPlayerIndex();
-        this.input = input;
+        for(Player player : players)
+            player.setInput(input);
     }
 
 }

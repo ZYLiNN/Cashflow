@@ -17,7 +17,7 @@ public class Main {
                 cashFlow.startGame();
             }
             else{
-                cashFlow.readGameRecord(input);
+                cashFlow.readGameRecord();
                 cashFlow.startGame();
             }
             System.out.println("再玩一次?(y/n): ");
