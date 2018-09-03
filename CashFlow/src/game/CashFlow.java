@@ -18,9 +18,9 @@ public class CashFlow {
     private Player currentPlayer;
     private Player winner = null;
     private StockMarket stockMarket;
-    private GameWriter gameWriter = new GameWriter();
-    private GameReader gameReader = new GameReader();
-    private String[] aiNames = {"Min", "Pan", "Ana", "Woo", "Liu", "Ning"};
+    private GameWriterAndReader gameWriterAndReader = new GameWriterAndReader();
+    private final int REALPLAYER = 1;
+    private final int EXIT = 0;
 
     public CashFlow() {
         stockMarket = new StockMarket();
@@ -36,34 +36,41 @@ public class CashFlow {
         for (int i = 1; i < 5; i++) {
             System.out.println("請輸入玩家" + i + "類型(1.真人 2.AI): ");
             int category = input.nextInt();
-            if(category == 1)
-                System.out.println("請輸入玩家姓名: ");
-            String name = category == 1 ? input.next() : aiNames[(int) (Math.random() * (aiNames.length))];
-            // 1: 真人　2:AI
-            players.add(category == 1 ? new RealPlayer(i, name) : new AI(i, name));
+            players.add(category == REALPLAYER ? new RealPlayer(i) : new AI(i, stockMarket));
         }
     }
 
     public void startGame() {
         while (!isGameOver) {
             stockMarket.showInfo();
+            currentPlayer.showPlayerOwnStocks(stockMarket.getStockHashMap().size());
             try {
-                stockMarket.tradeStocks(currentPlayer);
+                tradStock();
             } catch (DepositNotEnoughException | PlayerStocksNotExistException | PlayerStocksAmountNotEnoughException err) {
                 err.printStackTrace();
             }
-            isPlayerWinTheGame(currentPlayer);
+            judgeAnyPlayerWinTheGameAndSetupWinner(currentPlayer);
             turnToNextPlayer();
             if(playerIndex % 4 == 0)
-                stockMarket.stocksInfoChange();
+                stockMarket.changeStocksInfo();
             recordGame();
         }
         System.out.println("Winner is: " + winner.getName());
     }
 
+    private void tradStock() throws PlayerStocksNotExistException, PlayerStocksAmountNotEnoughException, DepositNotEnoughException {
+        int choice = currentPlayer.makeChoice();
+        if (choice == EXIT)
+            System.out.println();
+        else {
+            int stockId = currentPlayer.chooseStock();
+            int amount = currentPlayer.determineStockAmount();
+            stockMarket.tradeStocks(currentPlayer, choice, stockId, amount);
+        }
+    }
 
     //Todo
-    private void isPlayerWinTheGame(Player currentPlayer) {
+    private void judgeAnyPlayerWinTheGameAndSetupWinner(Player currentPlayer) {
         if(currentPlayer.getDeposit() >= 10000) {
             isGameOver = currentPlayer.getDeposit() >= 10000;
             winner = currentPlayer;
@@ -77,13 +84,16 @@ public class CashFlow {
     }
 
     private void recordGame(){
-        gameWriter.writeGameRecord(stockMarket, players);
+        gameWriterAndReader.writeGameRecord(stockMarket, players, currentPlayer, playerIndex);
     }
 
-    public void readGameRecord(){
-        gameReader.readGameRecord();
-        this.stockMarket = gameReader.getStockMarket();
-        this.players = gameReader.getPlayers();
+    public void readGameRecord(Scanner input){
+        gameWriterAndReader.readGameRecord();
+        this.stockMarket = gameWriterAndReader.getStockMarket();
+        this.players = gameWriterAndReader.getPlayers();
+        this.currentPlayer = gameWriterAndReader.getCurrentPlayer();
+        this.playerIndex = gameWriterAndReader.getPlayerIndex();
+        this.input = input;
     }
 
 }

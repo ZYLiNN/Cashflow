@@ -12,50 +12,56 @@ public abstract class Player implements Serializable {
     protected int id;
     protected String name;
     protected int deposit;
+    protected  transient Scanner input = new Scanner(System.in);
     protected HashMap<Integer, PlayerStock> playerStockHashMap = new HashMap<>();
 
-    public Player(int id, String name) {
+    public Player(int id) {
         this.id = id;
-        this.name = name;
         deposit = 6000;
+        this.createName();
     }
+
+    public abstract void createName();
 
     public abstract int makeChoice();
 
-    //Todo
-    public void buyStocks(Stock stock, int amount) throws DepositNotEnoughException{
-        if (deposit < (stock.getPrice() * amount))
-            throw new DepositNotEnoughException();
-        else {
-            deposit -= (stock.getPrice() * amount);
-            amount = playerStockHashMap.get(stock.getId()) != null ? playerStockHashMap.get(stock.getId()).getAmount() + amount : amount;
-            playerStockHashMap.put(stock.getId(), new PlayerStock(stock, amount));
-        }
-    }
+    public abstract void buyOrSoldStocks();
 
-    //Todo
-    public void soldStocks(Stock stock, int amount) throws PlayerStocksNotExistException, PlayerStocksAmountNotEnoughException{
-        if (playerStockHashMap.get(stock.getId()) == null)
-            throw new PlayerStocksNotExistException();
-        else if (playerStockHashMap.get(stock.getId()).getAmount() < amount)
-            throw new PlayerStocksAmountNotEnoughException();
-        else {
-            deposit += (stock.getPrice() * amount);
-            amount = playerStockHashMap.get(stock.getId()).getAmount() - amount;
-            if(amount == 0)
-                playerStockHashMap.remove(stock.getId());
-            else
-                playerStockHashMap.put(stock.getId(), new PlayerStock(stock, amount));
-        }
-    }
+//    //Todo
+//    public void buyStocks(Stock stock, int amount) throws DepositNotEnoughException{
+//        if (deposit < (stock.getPrice() * amount))
+//            throw new DepositNotEnoughException();
+//        else {
+//            deposit -= (stock.getPrice() * amount);
+//            amount = playerStockHashMap.get(stock.getId()) != null ? playerStockHashMap.get(stock.getId()).getAmount() + amount : amount;
+//            playerStockHashMap.put(stock.getId(), new PlayerStock(stock, amount));
+//        }
+//    }
+//
+//    //Todo
+//    public void soldStocks(Stock stock, int amount) throws PlayerStocksNotExistException, PlayerStocksAmountNotEnoughException{
+//        if (playerStockHashMap.get(stock.getId()) == null)
+//            throw new PlayerStocksNotExistException();
+//        else if (playerStockHashMap.get(stock.getId()).getAmount() < amount)
+//            throw new PlayerStocksAmountNotEnoughException();
+//        else {
+//            deposit += (stock.getPrice() * amount);
+//            amount = playerStockHashMap.get(stock.getId()).getAmount() - amount;
+//            if(amount == 0)
+//                playerStockHashMap.remove(stock.getId());
+//            else
+//                playerStockHashMap.put(stock.getId(), new PlayerStock(stock, amount));
+//        }
+//    }
 
-    public void showPlayerOwnStocks() {
+    //todo map size
+    public void showPlayerOwnStocks(int size) {
         System.out.println("--擁有");
         if(playerStockHashMap != null){
-            for (int s = 0; s < StockMarket.getStockHashMap().size(); s++){
+            for (int s = 0; s < size; s++){
                 PlayerStock playerStock = playerStockHashMap.get(s+1);
                 if(playerStock != null)
-                    System.out.println("(" + playerStock.stock.getId() + ") " + playerStock.stock.getName() + " " + playerStock.amount + "張");
+                    System.out.println(playerStock);
             }
         }
     }
@@ -94,32 +100,6 @@ public abstract class Player implements Serializable {
 
     public void setPlayerStockHashMap(HashMap<Integer, PlayerStock> playerStockHashMap) {
         this.playerStockHashMap = playerStockHashMap;
-    }
-
-    protected class PlayerStock{
-        private Stock stock;
-        private int amount;
-
-        public PlayerStock(Stock stock, int amount) {
-            this.stock = stock;
-            this.amount = amount;
-        }
-
-        public Stock getStock() {
-            return stock;
-        }
-
-        public void setStock(Stock stock) {
-            this.stock = stock;
-        }
-
-        public int getAmount() {
-            return amount;
-        }
-
-        public void setAmount(int amount) {
-            this.amount = amount;
-        }
     }
 
 }

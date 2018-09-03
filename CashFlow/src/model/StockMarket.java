@@ -8,7 +8,9 @@ import java.io.Serializable;
 import java.util.HashMap;
 
 public class StockMarket implements Serializable {
-    private static HashMap<Integer, Stock> stockHashMap = new HashMap<>();
+    private HashMap<Integer, Stock> stockHashMap = new HashMap<>();
+    private final int INCREASE = 1;
+    private final int DECREASE = 2;
 
     public StockMarket() {
         createStocks();
@@ -22,67 +24,102 @@ public class StockMarket implements Serializable {
         stockHashMap.put(5, new Stock(5, "富士康", 1000));
     }
 
-    public static HashMap<Integer, Stock> getStockHashMap() {
+    public HashMap<Integer, Stock> getStockHashMap() {
         return stockHashMap;
     }
 
     public void setStockHashMap(HashMap<Integer, Stock> stockHashMap) {
-        StockMarket.stockHashMap = stockHashMap;
+        this.stockHashMap = stockHashMap;
     }
 
     public void showInfo() {
         for (int i = 1; i <= stockHashMap.size(); i++) {
             Stock stock = stockHashMap.get(i);
-            System.out.println("(" + stock.getId() + ") " + stock.getName() + " " + stock.getPrice());
+            System.out.println(stock);
         }
     }
 
-    public void tradeStocks(Player player) throws DepositNotEnoughException, PlayerStocksNotExistException, PlayerStocksAmountNotEnoughException {
-        int choice = player.makeChoice();
-        player.showPlayerOwnStocks();
+    public void tradeStocks(Player player, int choice, int stockId, int amount) throws DepositNotEnoughException, PlayerStocksNotExistException, PlayerStocksAmountNotEnoughException {
         switch (choice) {
             case 1:
-                playerBuyStock(player);
+                playerBuyStock(player, stockId, amount);
                 break;
             case 2:
-                playerSoldStock(player);
-                break;
-            default:
+                playerSoldStock(player, stockId, amount);
                 break;
         }
     }
 
     //Todo 優化
-    private void playerSoldStock(Player player) throws PlayerStocksAmountNotEnoughException, PlayerStocksNotExistException {
+    private void playerSoldStock(Player player, int stockId, int amount) throws PlayerStocksAmountNotEnoughException, PlayerStocksNotExistException {
         //得到要購買要賣出的股票
-        Stock stock = stockHashMap.get(player.chooseStock());
-        int amount = player.determineStockAmount();
-        player.soldStocks(stock, amount);
-    }
-
-    private void playerBuyStock(Player player) throws DepositNotEnoughException {
-        Stock stock = stockHashMap.get(player.chooseStock());
-        int amount = player.determineStockAmount();
-        player.buyStocks(stock, amount);
-    }
-
-    public void stocksInfoChange() {
-        for(int i = 1; i <= stockHashMap.size(); i++){
-            int num = (int)(Math.random() * 3);
-            int money = (int) (Math.random() * 400) + 100;
-            Stock stock = stockHashMap.get(i);
-            int  stockPrice = stock.getPrice();
-            switch (num) {
-                case 1:
-                    stock.setPrice(stockPrice + money);
-                    stockHashMap.put(i, stock);
-                    break;
-                case 2:
-                    stock.setPrice(stockPrice - money < 0 ? 100 : stockPrice - money);
-                    stockHashMap.put(i, stock);
-                default:
-                    break;
-            }
+        Stock stock = stockHashMap.get(stockId);
+        if (player.getPlayerStockHashMap().get(stockId) == null)
+            throw new PlayerStocksNotExistException();
+        else if (player.getPlayerStockHashMap().get(stockId).getAmount() < amount)
+            throw new PlayerStocksAmountNotEnoughException();
+        else {
+            player.deposit += (stock.getPrice() * amount);
+            amount = player.getPlayerStockHashMap().get(stockId).getAmount() - amount;
+            if(amount == 0)
+                player.playerStockHashMap.remove(stockId);
+            else
+                player.playerStockHashMap.put(stockId, new PlayerStock(stock, amount));
         }
     }
+
+    private void playerBuyStock(Player player, int stockId, int amount) throws DepositNotEnoughException {
+        Stock stock = stockHashMap.get(stockId);
+        if (player.getDeposit() < (stock.getPrice() * amount))
+            throw new DepositNotEnoughException();
+        else {
+            player.deposit -= (stock.getPrice() * amount);
+            amount = player.playerStockHashMap.get(stock.getId()) != null ? player.playerStockHashMap.get(stock.getId()).getAmount() + amount : amount;
+            player.playerStockHashMap.put(stock.getId(), new PlayerStock(stock, amount));
+        }
+    }
+
+    public void changeStocksInfo() {
+        int ran = (int) (Math.random() * 19) + 1;
+        for (int i = 1; i <= stockHashMap.size(); i++) {
+            int finalPrice = 0;
+            int money;
+            Stock stock = stockHashMap.get(i);
+            switch (ran % i) {
+                case 0:
+                    finalPrice = (int) (Math.random() * 150) + 1;
+                    break;
+                case 1:
+                    finalPrice = (int) (Math.random() * 297) + 1;
+                    break;
+                case 2:
+                    money = (int) (Math.random() * 134) + 1;
+                    finalPrice = ((int) (Math.random() * 3) + 1) * money;
+                    break;
+                case 3:
+                    money = (int) (Math.random() * 242) + 1;
+                    finalPrice = ((int) (Math.random() * 5) + 1) * money;
+                    break;
+                case 4:
+                    money = (int) (Math.random() * 792) + 1;
+                    finalPrice = ((int) (Math.random() * 3) + 1) * money;
+                    break;
+            }
+            increaseOrDecrease(stock, finalPrice);
+        }
+    }
+
+    public void increaseOrDecrease(Stock stock, int price) {
+        int ran = (int) (Math.random() * 3);
+        int stockPrice = stock.getPrice();
+        switch (ran) {
+            case INCREASE:
+                stock.setPrice(stockPrice + price);
+                break;
+            case DECREASE:
+                stock.setPrice(stockPrice - price < 0 ? 100 : stockPrice - price);
+                break;
+        }
+    }
+
 }
