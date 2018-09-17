@@ -2,10 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="052f1b6b-f35c-4c00-b5aa-055db962a528" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/model/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/AI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/RealPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/RealPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/StockMarket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/StockMarket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/StockAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CashFlow/game/CashFlow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CashFlow/game/CashFlow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CashFlow/model/AI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CashFlow/model/AI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CashFlow/model/GameWriterAndReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CashFlow/model/GameWriterAndReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CashFlow/model/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CashFlow/model/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CashFlow/model/RealPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CashFlow/model/RealPlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CashFlow/model/StockMarket.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CashFlow/model/StockMarket.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/CashFlow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/CashFlow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/GameWriterAndReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/GameSaveManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/record" beforeDir="false" afterPath="$PROJECT_DIR$/src/record" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -60,35 +67,36 @@
     <session id="-1301074592">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
+          <entry key="project.closed" value="11" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.18" value="2" />
           <entry key="project.open.time.19" value="2" />
-          <entry key="project.open.time.20" value="2" />
+          <entry key="project.open.time.20" value="3" />
           <entry key="project.open.time.25" value="1" />
-          <entry key="project.opened" value="8" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.opened" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="22" />
+          <entry key="java" value="23" />
           <entry key="record" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="22" />
+          <entry key="JAVA" value="23" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="6528" />
+          <entry key="java" value="6539" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="6528" />
+          <entry key="JAVA" value="6539" />
         </counts>
       </usages-collector>
     </session>
@@ -96,50 +104,34 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/game/Main.java">
+        <entry file="file://$PROJECT_DIR$/src/model/GameSaveManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+            <state relative-caret-position="325">
+              <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/GameWriterAndReader.java">
+        <entry file="file://$PROJECT_DIR$/src/model/StockMarket.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="22" column="37" lean-forward="true" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
+            <state relative-caret-position="490">
+              <caret line="50" column="5" lean-forward="true" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1559#1560#0" expanded="true" />
-                <element signature="e#1593#1594#0" expanded="true" />
-                <element signature="e#1652#1653#0" expanded="true" />
-                <element signature="e#1698#1699#0" expanded="true" />
-                <element signature="e#1738#1739#0" expanded="true" />
-                <element signature="e#1768#1769#0" expanded="true" />
-                <element signature="e#1820#1821#0" expanded="true" />
-                <element signature="e#1858#1859#0" expanded="true" />
-                <element signature="e#1898#1899#0" expanded="true" />
-                <element signature="e#1934#1935#0" expanded="true" />
-                <element signature="e#1992#1993#0" expanded="true" />
-                <element signature="e#2042#2043#0" expanded="true" />
-                <element signature="e#2077#2078#0" expanded="true" />
-                <element signature="e#2111#2112#0" expanded="true" />
-                <element signature="e#2162#2163#0" expanded="true" />
-                <element signature="e#2208#2209#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/model/StockMarket.java">
+        <entry file="file://$PROJECT_DIR$/src/model/StockAlgorithm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="111" column="40" selection-start-line="111" selection-start-column="40" selection-end-line="111" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="66">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -147,12 +139,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/game/CashFlow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1716">
-              <caret line="97" column="5" lean-forward="true" selection-start-line="97" selection-start-column="5" selection-end-line="97" selection-end-column="5" />
-              <folding>
-                <element signature="e#2810#2811#0" expanded="true" />
-                <element signature="e#2911#2912#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1408">
+              <caret line="71" selection-start-line="71" selection-end-line="71" />
             </state>
           </provider>
         </entry>
@@ -160,12 +148,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/RealPlayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
+            <state relative-caret-position="418">
               <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-              <folding>
-                <element signature="e#115#116#0" expanded="true" />
-                <element signature="e#140#141#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -173,7 +157,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/AI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="888">
+            <state relative-caret-position="1078">
               <caret line="49" selection-start-line="49" selection-end-line="49" />
             </state>
           </provider>
@@ -182,11 +166,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/Stock.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
+            <state relative-caret-position="616">
               <caret line="41" column="51" selection-start-line="41" selection-start-column="51" selection-end-line="41" selection-end-column="51" />
               <folding>
                 <element signature="e#709#710#0" expanded="true" />
-                <element signature="e#742#743#0" expanded="true" />
+                <element signature="e#768#769#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -195,12 +179,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
-              <folding>
-                <element signature="e#3220#3221#0" expanded="true" />
-                <element signature="e#3254#3255#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1386">
+              <caret line="71" selection-start-line="71" selection-end-line="71" />
             </state>
           </provider>
         </entry>
@@ -208,7 +188,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="jar://D:/Java/jdk-10.0.2/lib/src.zip!/java.base/java/io/ObjectStreamClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
+            <state relative-caret-position="13376">
               <caret line="688" selection-start-line="688" selection-end-line="688" />
             </state>
           </provider>
@@ -217,7 +197,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/PlayerStock.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
+            <state relative-caret-position="506">
               <caret line="31" column="89" selection-start-line="31" selection-start-column="89" selection-end-line="31" selection-end-column="89" />
             </state>
           </provider>
@@ -264,17 +244,18 @@
         <option value="$PROJECT_DIR$/src/exception/PlayerStocksAmountNotEnoughException.java" />
         <option value="$PROJECT_DIR$/src/exception/PlayerStocksNotExistException.java" />
         <option value="$PROJECT_DIR$/src/model/PlayerStock.java" />
-        <option value="$PROJECT_DIR$/src/model/GameWriterAndReader.java" />
         <option value="$PROJECT_DIR$/src/game/Main.java" />
-        <option value="$PROJECT_DIR$/src/game/CashFlow.java" />
-        <option value="$PROJECT_DIR$/src/model/Player.java" />
         <option value="$PROJECT_DIR$/src/model/RealPlayer.java" />
         <option value="$PROJECT_DIR$/src/model/AI.java" />
         <option value="$PROJECT_DIR$/src/model/StockMarket.java" />
+        <option value="$PROJECT_DIR$/src/game/CashFlow.java" />
+        <option value="$PROJECT_DIR$/src/model/Player.java" />
+        <option value="$PROJECT_DIR$/src/model/GameWriterAndReader.java" />
+        <option value="$PROJECT_DIR$/src/model/GameSaveManager.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-24" />
     <option name="y" value="11" />
     <option name="width" value="1456" />
@@ -288,8 +269,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -307,29 +286,19 @@
               <item name="CashFlow" type="b2602c69:ProjectViewProjectNode" />
               <item name="CashFlow" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="exception" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CashFlow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CashFlow" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="game" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CashFlow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CashFlow" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535980983239" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Coding-GYM/LiNNN/Tic-Tac-Toe" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537134564346" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
   </component>
   <component name="RunDashboard">
@@ -399,10 +368,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1432" y="-8" width="1296" height="1040" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1456" height="916" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23381877" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16045845" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -411,12 +379,12 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32992327" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3107417" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.24808185" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39897698" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3286445" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.2825607" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32781458" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.28132993" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32992327" />
@@ -463,24 +431,6 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/model/StockMarket.java</url>
-          <line>56</line>
-          <properties />
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/model/StockMarket.java</url>
-          <line>55</line>
-          <properties />
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/exception/DepositNotEnough.java" />
     <entry file="file://$PROJECT_DIR$/src/model/CompanyInfoCallBack.java" />
@@ -499,16 +449,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/GameReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="11" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/GameReader.java" />
     <entry file="file://$PROJECT_DIR$/src/record">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -533,111 +474,90 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Stock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="41" column="51" selection-start-line="41" selection-start-column="51" selection-end-line="41" selection-end-column="51" />
-          <folding>
-            <element signature="e#709#710#0" expanded="true" />
-            <element signature="e#742#743#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Java/jdk-10.0.2/lib/src.zip!/java.base/java/io/ObjectStreamClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="688" selection-start-line="688" selection-end-line="688" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/PlayerStock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="31" column="89" selection-start-line="31" selection-start-column="89" selection-end-line="31" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/game/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
+        <state relative-caret-position="418">
           <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/game/CashFlow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1716">
-          <caret line="97" column="5" lean-forward="true" selection-start-line="97" selection-start-column="5" selection-end-line="97" selection-end-column="5" />
-          <folding>
-            <element signature="e#2810#2811#0" expanded="true" />
-            <element signature="e#2911#2912#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1408">
+          <caret line="71" selection-start-line="71" selection-end-line="71" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/GameWriterAndReader.java">
+    <entry file="file://$PROJECT_DIR$/src/model/RealPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="22" column="37" lean-forward="true" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
+        <state relative-caret-position="418">
+          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/AI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1078">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Stock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="41" column="51" selection-start-line="41" selection-start-column="51" selection-end-line="41" selection-end-column="51" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1559#1560#0" expanded="true" />
-            <element signature="e#1593#1594#0" expanded="true" />
-            <element signature="e#1652#1653#0" expanded="true" />
-            <element signature="e#1698#1699#0" expanded="true" />
-            <element signature="e#1738#1739#0" expanded="true" />
-            <element signature="e#1768#1769#0" expanded="true" />
-            <element signature="e#1820#1821#0" expanded="true" />
-            <element signature="e#1858#1859#0" expanded="true" />
-            <element signature="e#1898#1899#0" expanded="true" />
-            <element signature="e#1934#1935#0" expanded="true" />
-            <element signature="e#1992#1993#0" expanded="true" />
-            <element signature="e#2042#2043#0" expanded="true" />
-            <element signature="e#2077#2078#0" expanded="true" />
-            <element signature="e#2111#2112#0" expanded="true" />
-            <element signature="e#2162#2163#0" expanded="true" />
-            <element signature="e#2208#2209#0" expanded="true" />
+            <element signature="e#709#710#0" expanded="true" />
+            <element signature="e#768#769#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="e#3220#3221#0" expanded="true" />
-            <element signature="e#3254#3255#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1386">
+          <caret line="71" selection-start-line="71" selection-end-line="71" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/RealPlayer.java">
+    <entry file="jar://D:/Java/jdk-10.0.2/lib/src.zip!/java.base/java/io/ObjectStreamClass.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-          <folding>
-            <element signature="e#115#116#0" expanded="true" />
-            <element signature="e#140#141#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="13376">
+          <caret line="688" selection-start-line="688" selection-end-line="688" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/AI.java">
+    <entry file="file://$PROJECT_DIR$/src/model/PlayerStock.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="888">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        <state relative-caret-position="506">
+          <caret line="31" column="89" selection-start-line="31" selection-start-column="89" selection-end-line="31" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/GameSaveManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/StockMarket.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="111" column="40" selection-start-line="111" selection-start-column="40" selection-end-line="111" selection-end-column="40" />
+        <state relative-caret-position="490">
+          <caret line="50" column="5" lean-forward="true" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/StockAlgorithm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>

@@ -17,11 +17,11 @@ public class StockMarket implements Serializable {
     }
 
     private void createStocks() {
-        stockHashMap.put(1, new Stock(1, "鴻海", 1000));
-        stockHashMap.put(2, new Stock(2, "宏達電", 1000));
-        stockHashMap.put(3, new Stock(3, "蘋果", 1000));
-        stockHashMap.put(4, new Stock(4, "台積電", 1000));
-        stockHashMap.put(5, new Stock(5, "富士康", 1000));
+        stockHashMap.put(1, new Stock(1, "鴻海", 1000, new HighIncreaseLowDecrease()));
+        stockHashMap.put(2, new Stock(2, "宏達電", 1000, new LowIncreaseLowDecrease()));
+        stockHashMap.put(3, new Stock(3, "蘋果", 1000, new HighIncreaseLowDecrease()));
+        stockHashMap.put(4, new Stock(4, "台積電", 1000, new HighIncreaseLowDecrease()));
+        stockHashMap.put(5, new Stock(5, "富士康", 1000, new HighIncreaseHighDecrease()));
     }
 
     public HashMap<Integer, Stock> getStockHashMap() {
@@ -78,33 +78,36 @@ public class StockMarket implements Serializable {
     }
 
     public void changeStocksInfo() {
-        int ran = (int) (Math.random() * 19) + 1;
-        for (int i = 1; i <= stockHashMap.size(); i++) {
-            int finalPrice = 0;
-            int money;
-            Stock stock = stockHashMap.get(i);
-            switch (ran % i) {
-                case 0:
-                    finalPrice = (int) (Math.random() * 150) + 1;
-                    break;
-                case 1:
-                    finalPrice = (int) (Math.random() * 297) + 1;
-                    break;
-                case 2:
-                    money = (int) (Math.random() * 134) + 1;
-                    finalPrice = ((int) (Math.random() * 3) + 1) * money;
-                    break;
-                case 3:
-                    money = (int) (Math.random() * 242) + 1;
-                    finalPrice = ((int) (Math.random() * 5) + 1) * money;
-                    break;
-                case 4:
-                    money = (int) (Math.random() * 792) + 1;
-                    finalPrice = ((int) (Math.random() * 3) + 1) * money;
-                    break;
-            }
-            increaseOrDecreaseStocks(stock, finalPrice);
-        }
+            for (int i = 1; i <= stockHashMap.size(); i++)
+                stockHashMap.get(i).changePrice();
+
+//        int ran = (int) (Math.random() * 19) + 1;
+//        for (int i = 1; i <= stockHashMap.size(); i++) {
+//            int finalPrice = 0;
+//            int money;
+//            Stock stock = stockHashMap.get(i);
+//            switch (ran % i) {
+//                case 0:
+//                    finalPrice = (int) (Math.random() * 150) + 1;
+//                    break;
+//                case 1:
+//                    finalPrice = (int) (Math.random() * 297) + 1;
+//                    break;
+//                case 2:
+//                    money = (int) (Math.random() * 134) + 1;
+//                    finalPrice = ((int) (Math.random() * 3) + 1) * money;
+//                    break;
+//                case 3:
+//                    money = (int) (Math.random() * 242) + 1;
+//                    finalPrice = ((int) (Math.random() * 5) + 1) * money;
+//                    break;
+//                case 4:
+//                    money = (int) (Math.random() * 792) + 1;
+//                    finalPrice = ((int) (Math.random() * 3) + 1) * money;
+//                    break;
+//            }
+//            increaseOrDecreaseStocks(stock, finalPrice);
+//        }
     }
 
     public void increaseOrDecreaseStocks(Stock stock, int price) {

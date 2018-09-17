@@ -18,7 +18,7 @@ public class CashFlow {
     private Player currentPlayer;
     private Player winner = null;
     private StockMarket stockMarket;
-    private GameWriterAndReader gameWriterAndReader = new GameWriterAndReader();
+    private GameSaveManager gameWriterAndReader = new GameSaveManager();
     private final int REALPLAYER = 1;
     private final int EXIT = 0;
 

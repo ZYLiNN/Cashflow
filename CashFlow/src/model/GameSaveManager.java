@@ -3,8 +3,8 @@ package model;
 import java.io.*;
 import java.util.List;
 
-public class GameWriterAndReader {
-    private static final String FILENAME = "..\\CashFlow\\src\\record";
+public class GameSaveManager {
+    private static final String FILENAME = "record";
     private StockMarket stockMarket = null;
     private List<Player> players = null;
     private Player currentPlayer = null;
